@@ -1,0 +1,39 @@
+{% extends 'catalog/base.html' %}
+{% load static %}
+{% block content %}
+<title>{% block title %}Купить базу поставщиков {{ current_year }}{% endblock %}</title>
+
+
+<div class="container"><br><br>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="main-content">
+                <h1 class="p-4 mb-3 bg-body-tertiary rounded">Купить базу поставщиков {{ current_year }}</h1><br>
+                <h6>Скачайте лучшие базы собранные из 2gis и Яндекс.справочник — <span style="color: red;">пока бесплатно!</span></h6><br>
+                {% for rubric in rubrics %}
+                    <li><a href=""><img src="{% static 'img/download.svg' %}"></a> <a href="{% url 'rubric_detail' rubric=rubric %}">{{ rubric }}</a> <br></li><br>
+                {% endfor %}
+            </div>
+        </div>
+<!--         <div class="col-md-3">
+            <div class="post-tags">
+    <div class="post">
+        <h5 class="p-4 mb-3 bg-body-tertiary rounded">Новых поставщики</h5>
+        <div style="padding: 20px;">
+        {% for rubric in rubrics %}
+            <li>· <a href="{% url 'rubric_detail' rubric=rubric %}">{{ rubric }}</a><br></li><br>
+
+        {% endfor %}
+        </div>
+    </div><br>-->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
